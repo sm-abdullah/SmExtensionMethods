@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmExtentionsMethods", "SmExtMethods\SmExtentionsMethods.csproj", "{17948106-84DE-47F7-8626-119C9ABD7640}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMExtMethodsTest", "SMExtMethodsTest\SMExtMethodsTest.csproj", "{044CD0D4-9C8F-47B7-834F-62F30FC25534}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{24F2BA6C-A305-4F8E-A970-5CDA4D7D349C}"
+	ProjectSection(SolutionItems) = preProject
+		Local.testsettings = Local.testsettings
+		SmExtMethods.vsmdi = SmExtMethods.vsmdi
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = SmExtMethods.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{17948106-84DE-47F7-8626-119C9ABD7640}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17948106-84DE-47F7-8626-119C9ABD7640}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17948106-84DE-47F7-8626-119C9ABD7640}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{17948106-84DE-47F7-8626-119C9ABD7640}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{17948106-84DE-47F7-8626-119C9ABD7640}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{17948106-84DE-47F7-8626-119C9ABD7640}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17948106-84DE-47F7-8626-119C9ABD7640}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17948106-84DE-47F7-8626-119C9ABD7640}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{17948106-84DE-47F7-8626-119C9ABD7640}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{17948106-84DE-47F7-8626-119C9ABD7640}.Release|x86.ActiveCfg = Release|Any CPU
+		{044CD0D4-9C8F-47B7-834F-62F30FC25534}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{044CD0D4-9C8F-47B7-834F-62F30FC25534}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{044CD0D4-9C8F-47B7-834F-62F30FC25534}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{044CD0D4-9C8F-47B7-834F-62F30FC25534}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{044CD0D4-9C8F-47B7-834F-62F30FC25534}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{044CD0D4-9C8F-47B7-834F-62F30FC25534}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{044CD0D4-9C8F-47B7-834F-62F30FC25534}.Release|Any CPU.Build.0 = Release|Any CPU
+		{044CD0D4-9C8F-47B7-834F-62F30FC25534}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{044CD0D4-9C8F-47B7-834F-62F30FC25534}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{044CD0D4-9C8F-47B7-834F-62F30FC25534}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
