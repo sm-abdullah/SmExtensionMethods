@@ -1,5 +1,0 @@
-E:\GIT\SmExtensionMethodsUtlity\SmExtMethods\SmExtMethods\obj\Debug\SmExtMethods.dll
-E:\GIT\SmExtensionMethodsUtlity\SmExtMethods\SmExtMethods\obj\Debug\SmExtMethods.pdb
-E:\GIT\SmExtensionMethodsUtlity\SmExtMethods\SmExtMethods\bin\Debug\SmExtMethods.dll
-E:\GIT\SmExtensionMethodsUtlity\SmExtMethods\SmExtMethods\bin\Debug\SmExtMethods.pdb
-E:\GIT\SmExtensionMethodsUtlity\SmExtMethods\SmExtMethods\obj\Debug\SmExtentionsMethods.csprojResolveAssemblyReference.cache

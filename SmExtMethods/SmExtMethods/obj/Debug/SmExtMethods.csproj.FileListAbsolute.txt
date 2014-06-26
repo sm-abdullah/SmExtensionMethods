@@ -1,8 +1,0 @@
-c:\users\farhanshams\documents\visual studio 2010\Projects\SmExtMethods\SmExtMethods\bin\Debug\SmExtMethods.dll
-c:\users\farhanshams\documents\visual studio 2010\Projects\SmExtMethods\SmExtMethods\bin\Debug\SmExtMethods.pdb
-c:\users\farhanshams\documents\visual studio 2010\Projects\SmExtMethods\SmExtMethods\obj\Debug\SmExtMethods.dll
-c:\users\farhanshams\documents\visual studio 2010\Projects\SmExtMethods\SmExtMethods\obj\Debug\SmExtMethods.pdb
-D:\WMC Working\WMC\SmExtMethods\SmExtMethods\bin\Debug\SmExtMethods.dll
-D:\WMC Working\WMC\SmExtMethods\SmExtMethods\bin\Debug\SmExtMethods.pdb
-D:\WMC Working\WMC\SmExtMethods\SmExtMethods\obj\Debug\SmExtMethods.dll
-D:\WMC Working\WMC\SmExtMethods\SmExtMethods\obj\Debug\SmExtMethods.pdb
