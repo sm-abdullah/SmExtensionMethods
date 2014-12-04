@@ -5,3 +5,6 @@
 /SmExtMethods/SmExtMethods/bin/Debug
 /SmExtMethods/SmExtMethods/bin
 /SmExtMethods/SmExtMethods/obj
+/SmExtMethods/*.suo
+/SmExtMethods/SmExtMethods.suo
+*.suo
