@@ -158,6 +158,32 @@ namespace SmExtentionsMethods
 
         }
 
+        /// <summary>
+        ///  it will Convert a string into bool?
+        ///  if Fails then return null
+        /// </summary>
+        /// <param name="BoolStr">boolStr Convertable String</param>
+        /// <returns>bool ? </returns>
+        /// <example > bool i = "true".toBool() ?? 0 </example>
+        public static bool? toBool(this string boolStr)
+        {
+            bool? i = null;
+            try
+            {
+                i = bool.Parse(boolStr);
+            }
+            catch (Exception ex)
+            {
+
+                i = null;
+            }
+
+
+            return i;
+
+
+        }
+
         #endregion
         #region DateTime
         /// 
@@ -205,11 +231,49 @@ namespace SmExtentionsMethods
 
 
         }
+
+
+        /// <summary>
+        /// it will compare the given date with DateTime.Now and Return you Difference in Seconds,Minuts,Hours
+        /// But Not In Days
+        /// </summary>
+        /// <param name="date">this will be Compare with Current DateTime.Now</param>
+        /// <param name="TimesAgoSuffix">Any Suffix after Difference</param>
+        /// <param name="DateFormat">Return String Format</param>
+        /// <returns> 4 Seconds Ago , 5 Hours Ago</returns>
+        public static string GetTimeAgo(this DateTime date, string TimesAgoSuffix = "ago", string DateFormat = "dd MMM yyyy")
+        {
+            TimeSpan ts = DateTime.Now - date;
+            if (date.Date == DateTime.Today)
+            {
+                if (((int)ts.TotalDays) > 0)
+                {
+                    return date.toDateFormat(DateFormat);
+                }
+                else if (((int)ts.TotalHours) > 0)
+                {
+                    int h = (int)ts.TotalHours;
+                    return h + (h == 1 ? "hour" : " hours ") + TimesAgoSuffix;
+                }
+                else if (((int)ts.TotalMinutes) > 0)
+                {
+                    int m = (int)ts.TotalMinutes;
+                    return m + (m == 1 ? " minute " : " minutes") + TimesAgoSuffix;
+                }
+                else if (((int)ts.TotalSeconds) > 0)
+                {
+                    int sec = (int)ts.TotalSeconds;
+                    return sec + (sec == 1 ? " second " : " seconds ") + TimesAgoSuffix;
+                }
+            }
+            return date.toDateFormat(DateFormat);
+        }
+
         #endregion
 
 
 
-
+        #region Regex Extensions
         public static string RegexReplace(this string input, string pattern, string replacement)
         {
             return Regex.Replace(input, pattern, replacement);
@@ -222,6 +286,8 @@ namespace SmExtentionsMethods
         {
             return Regex.Match(input, pattern, regexOptions);
         }
+        #endregion
+        #region HTML 
         public static string HtmlDataDecode(this string data)
         {
             return System.Net.WebUtility.HtmlDecode(data);
@@ -230,12 +296,11 @@ namespace SmExtentionsMethods
         {
             return System.Net.WebUtility.HtmlEncode(data);
         }
-
         public static string HtmlURLEncode(this string URL)
         {
             return System.Uri.EscapeUriString(URL);
         }
-
+        #endregion
 
         /// <summary>
         /// 
@@ -401,6 +466,60 @@ namespace SmExtentionsMethods
         #endregion
 
 
+        /// <summary>
+        /// Similirty is computed using edit distance formula
+        /// and if returns  1.0 then boths string are 100% similar
+        /// otherwise similarity is computed between 0.0 to 1.0
+        /// </summary>
+        public static double ComputeSimilarity(this string thisString, string computeWith)
+        {
+
+            int n = thisString.Length;
+            int m = computeWith.Length;
+            double TotalLength = m > n ? m : n;
+            int[,] d = new int[n + 1, m + 1];
+
+            // Step 1
+            if (n == 0)
+            {
+                return 0.0;
+            }
+
+            if (m == 0)
+            {
+                return 0.0;
+            }
+
+            // Step 2
+            for (int i = 0; i <= n; d[i, 0] = i++)
+            {
+            }
+
+            for (int j = 0; j <= m; d[0, j] = j++)
+            {
+            }
+
+            // Step 3
+            for (int i = 1; i <= n; i++)
+            {
+                //Step 4
+                for (int j = 1; j <= m; j++)
+                {
+                    // Step 5
+                    int cost = (computeWith[j - 1] == thisString[i - 1]) ? 0 : 1;
+
+                    // Step 6
+                    d[i, j] = Math.Min(
+                        Math.Min(d[i - 1, j] + 1, d[i, j - 1] + 1),
+                        d[i - 1, j - 1] + cost);
+                }
+            }
+            // Step 7
+            double difference = d[n, m];
+
+            return 1.0 - (difference / TotalLength);
+
+        }
 
 
         /// 
@@ -469,6 +588,10 @@ namespace SmExtentionsMethods
             return lst;
         }
 
+        public static bool In<T>(this T source, params T[] list)
+        {
+            return list.Contains(source);
+        }
         #endregion
 
         /// <summary>
