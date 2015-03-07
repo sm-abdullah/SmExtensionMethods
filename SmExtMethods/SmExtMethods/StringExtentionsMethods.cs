@@ -19,23 +19,10 @@ namespace SmExtentionsMethods
         /// <param name="IntStr">Int Convertable String</param>
         /// <returns>Int ? </returns>
         /// <example > int i = "23".toInt() ?? 0 </example>
-        public static int? toInt(this string IntStr)
+        public static int? ToInt(this string IntStr)
         {
-            int? i = null;
-            try
-            {
-                i = int.Parse(IntStr);
-            }
-            catch (Exception ex)
-            {
-
-                i = null;
-            }
-
-
-            return i;
-
-
+            int i = 0;
+            return int.TryParse(IntStr, out i) ? (int?)i : null;
         }
 
         /// <summary>
@@ -45,20 +32,10 @@ namespace SmExtentionsMethods
         /// <param name="decimalStr">decimal Convertable String</param>
         /// <returns>decimal ? </returns>
         /// <example > decimal d = "23.2".toDecimal() ?? 0 </example>
-        public static decimal? toDecimal(this string decimalStr)
+        public static decimal? ToDecimal(this string decimalStr)
         {
-            decimal? i = null;
-            try
-            {
-                i = decimal.Parse(decimalStr);
-            }
-            catch (Exception ex)
-            {
-
-                i = null;
-            }
-
-            return i;
+            decimal d = 0;
+            return decimal.TryParse(decimalStr, out d) ? (decimal?)d : null;
 
 
         }
@@ -70,20 +47,10 @@ namespace SmExtentionsMethods
         /// <param name="dobuleStr">Double Convertable String</param>
         /// <returns>double ? </returns>
         /// <example > double d = "23.2".toDouble() ?? 0.0; </example>
-        public static double? toDouble(this string dobuleStr)
+        public static double? ToDouble(this string dobuleStr)
         {
-
-            double? d = null;
-            try
-            {
-                d = double.Parse(dobuleStr);
-            }
-            catch (Exception ex)
-            {
-
-                d = null;
-            }
-            return d;
+            double d = 0;
+            return double.TryParse(dobuleStr, out d) ? (double?)d : null;
 
         }
 
@@ -97,17 +64,9 @@ namespace SmExtentionsMethods
         public static float? toFloat(this string floatStr)
         {
 
-            float? f = null;
-            try
-            {
-                f = float.Parse(floatStr);
-            }
-            catch (Exception ex)
-            {
 
-                f = null;
-            }
-            return f;
+            float f = 0;
+            return float.TryParse(floatStr, out f) ? (float?)f: null;
 
         }
 
@@ -118,20 +77,10 @@ namespace SmExtentionsMethods
         /// <param name="longStr">toLong Convertable String</param>
         /// <returns> long? </returns>
         /// <example > long l = "23".toLong() ?? 0; </example>
-        public static long? toLong(this string longStr)
+        public static long? ToLong(this string longStr)
         {
-            long? i = null;
-            try
-            {
-                i = long.Parse(longStr);
-            }
-            catch (Exception ex)
-            {
-
-                i = null;
-            }
-
-            return i;
+            long f = 0;
+            return long.TryParse(longStr, out f) ? (long?)f : null;
 
         }
 
@@ -142,18 +91,10 @@ namespace SmExtentionsMethods
         /// <param name="shortStr">short Convertable String</param>
         /// <returns> short? </returns>
         /// <example > short s = "23".toShort() ?? 0; </example>
-        public static short? toShort(this string shortStr)
+        public static short? ToShort(this string shortStr)
         {
-            short? i = null;
-            try
-            {
-                i = short.Parse(shortStr);
-            }
-            catch (Exception ex)
-            {
-                i = null;
-            }
-            return i;
+            short f = 0;
+            return short.TryParse(shortStr, out f) ? (short?)f : null;
 
 
         }
@@ -165,21 +106,12 @@ namespace SmExtentionsMethods
         /// <param name="BoolStr">boolStr Convertable String</param>
         /// <returns>bool ? </returns>
         /// <example > bool i = "true".toBool() ?? 0 </example>
-        public static bool? toBool(this string boolStr)
+        public static bool? ToBool(this string boolStr)
         {
-            bool? i = null;
-            try
-            {
-                i = bool.Parse(boolStr);
-            }
-            catch (Exception ex)
-            {
-
-                i = null;
-            }
+            bool f = false;
+            return bool.TryParse(boolStr, out f) ? (bool?)f : null;
 
 
-            return i;
 
 
         }
