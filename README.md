@@ -1,7 +1,7 @@
-SmExtensionMethodsUtlity
+SmExtensionMethods
 ========================
 
-C# extension methods Utlity <br>
+C# extension methods Utility <br>
 it contains bunch of nice utlity methods
 <h2> How to use ? </h2>
 
