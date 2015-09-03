@@ -63,15 +63,15 @@ namespace SMExtMethodsTest
         public void TypeConverstionTest()
         {
             // try to convert '1234' into int
-            int i = "1234".toInt() ?? 0;
+            int i = "1234".ToInt() ?? 0;
             Assert.AreEqual(i, 1234);
-            i = "a1234".toInt() ?? 0;
+            i = "a1234".ToInt() ?? 0;
             Assert.AreEqual(i, 0);
 
             // try to convert '0123' to decimal
-            decimal d = "0123".toDecimal() ?? 0;
+            decimal d = "0123".ToDecimal() ?? 0;
             Assert.AreEqual(d, 0123);
-            d = "0a123".toDecimal() ?? 1;
+            d = "0a123".ToDecimal() ?? 1;
             Assert.AreEqual(d, 1);
 
         }
