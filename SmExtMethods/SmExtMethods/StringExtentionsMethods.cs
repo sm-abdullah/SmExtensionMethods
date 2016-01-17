@@ -61,7 +61,7 @@ namespace SmExtentionsMethods
         /// <param name="floatStr">float Convertable String</param>
         /// <returns> float? </returns>
         /// <example > float f = "23.2".toFloat() ?? 0.0; </example>
-        public static float? toFloat(this string floatStr)
+        public static float? ToFloat(this string floatStr)
         {
 
 
@@ -110,10 +110,6 @@ namespace SmExtentionsMethods
         {
             bool f = false;
             return bool.TryParse(boolStr, out f) ? (bool?)f : null;
-
-
-
-
         }
 
         #endregion
@@ -123,20 +119,10 @@ namespace SmExtentionsMethods
         /// 
         /// 
         /// 
-        public static DateTime? toDateTime(this string str)
+        public static DateTime? ToDateTime(this string str)
         {
-            DateTime? i = null;
-            try
-            {
-                i = DateTime.Parse(str);
-            }
-            catch (Exception ex)
-            {
-
-                i = null;
-            }
-
-            return i;
+            DateTime date;
+            return DateTime.TryParse(str, out date) ? (DateTime?)date : null;
         }
 
 
@@ -146,7 +132,7 @@ namespace SmExtentionsMethods
         /// 
         /// Date Pattern MM-dd-yyyy / dd-MM-yyyy
         /// It will return DateTime in a give Format
-        public static string toDateFormat(this string str, string ShortDatePattern = "MMM-dd-yyyy")
+        public static string ToDateFormat(this string str, string ShortDatePattern = "MMM-dd-yyyy")
         {
             DateTime date = DateTime.MinValue;
             if (DateTime.TryParse(str, out date))
@@ -180,7 +166,7 @@ namespace SmExtentionsMethods
             {
                 if (((int)ts.TotalDays) > 0)
                 {
-                    return date.toDateFormat(DateFormat);
+                    return date.ToDateFormat(DateFormat);
                 }
                 else if (((int)ts.TotalHours) > 0)
                 {
@@ -198,7 +184,7 @@ namespace SmExtentionsMethods
                     return sec + (sec == 1 ? " second " : " seconds ") + TimesAgoSuffix;
                 }
             }
-            return date.toDateFormat(DateFormat);
+            return date.ToDateFormat(DateFormat);
         }
 
         #endregion
@@ -339,27 +325,27 @@ namespace SmExtentionsMethods
         }
         #endregion
         #region String IO
-        /// 
-        /// It will Load a Text File From the Given path, return Empty String in case of Exceptions 
-        /// 
-        /// Loaded Text File
-        /// Path of File to Load
-        /// False in case of Exceptions
-        public static bool LoadFromTextFile(this string textFile, string filePath)
-        {
-            try
-            {
-                StreamReader streamReader = new StreamReader(filePath);
-                textFile = streamReader.ReadToEnd();
-                streamReader.Close();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                textFile = "";
-                return false;
-            }
-        }
+        ///// 
+        ///// It will Load a Text File From the Given path, return Empty String in case of Exceptions 
+        ///// 
+        ///// Loaded Text File
+        ///// Path of File to Load
+        ///// False in case of Exceptions
+        //public static bool LoadFromTextFile(this string textFile, string filePath)
+        //{
+        //    try
+        //    {
+        //        StreamReader streamReader = new StreamReader(filePath);
+        //        textFile = streamReader.ReadToEnd();
+        //        streamReader.Close();
+        //        return true;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        textFile = "";
+        //        return false;
+        //    }
+        //}
         /// 
         /// Save this String As Text File
         /// 
@@ -460,7 +446,7 @@ namespace SmExtentionsMethods
         /// 
         /// 
         /// 
-        public static string toDateFormat(this DateTime date, string ShortDatePattern = "MMM-dd-yyyy")
+        public static string ToDateFormat(this DateTime date, string ShortDatePattern = "MMM-dd-yyyy")
         {
 
 
