@@ -111,11 +111,11 @@ namespace SmExtentionsMethods
 
         #endregion
         #region DateTime
-        /// 
-        /// it will Return null if unable to parse it
-        /// 
-        /// 
-        /// 
+        /// <summary>
+        /// It will try to Convert a given string int DateTime
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
         public static DateTime? ToDateTime(this string str)
         {
             DateTime i;
@@ -125,8 +125,6 @@ namespace SmExtentionsMethods
 
         /// 
         /// It will Conver the String into the Given Format. Note : it will Return DateTime.MinValue Back if Unable to Convert due to Exceptions
-        /// 
-        /// 
         /// Date Pattern MM-dd-yyyy / dd-MM-yyyy
         /// It will return DateTime in a give Format
         public static string ToDateFormat(this string str, string ShortDatePattern = "MMM-dd-yyyy")
@@ -134,17 +132,12 @@ namespace SmExtentionsMethods
             DateTime date = DateTime.MinValue;
             if (DateTime.TryParse(str, out date))
             {
-
                 return date.ToString(ShortDatePattern);
-
             }
             else
             {
                 return null;
             }
-
-
-
         }
 
 
@@ -163,7 +156,7 @@ namespace SmExtentionsMethods
             {
                 if (((int)ts.TotalDays) > 0)
                 {
-                    return date.toDateFormat(DateFormat);
+                    return date.ToDateFormat(DateFormat);
                 }
                 else if (((int)ts.TotalHours) > 0)
                 {
@@ -181,7 +174,7 @@ namespace SmExtentionsMethods
                     return sec + (sec == 1 ? " second " : " seconds ") + TimesAgoSuffix;
                 }
             }
-            return date.toDateFormat(DateFormat);
+            return date.ToDateFormat(DateFormat);
         }
 
         #endregion
@@ -322,34 +315,10 @@ namespace SmExtentionsMethods
         }
         #endregion
         #region String IO
-        /// 
-        /// It will Load a Text File From the Given path, return Empty String in case of Exceptions 
-        /// 
-        /// Loaded Text File
-        /// Path of File to Load
-        /// False in case of Exceptions
-        public static bool LoadFromTextFile(this string textFile, string filePath)
-        {
-            try
-            {
-                StreamReader streamReader = new StreamReader(filePath);
-                textFile = streamReader.ReadToEnd();
-                streamReader.Close();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                textFile = "";
-                return false;
-            }
-        }
+       
         /// 
         /// Save this String As Text File
-        /// 
-        /// 
-        /// 
-        /// 
-        /// 
+
         public static bool SaveAsTextFile(this string Text, string FileName, string FilePath, bool append = false)
         {
             bool IsFileSaved = false;
@@ -443,7 +412,7 @@ namespace SmExtentionsMethods
         /// 
         /// 
         /// 
-        public static string toDateFormat(this DateTime date, string ShortDatePattern = "MMM-dd-yyyy")
+        public static string ToDateFormat(this DateTime date, string ShortDatePattern = "MMM-dd-yyyy")
         {
 
 
@@ -463,7 +432,7 @@ namespace SmExtentionsMethods
 
         /// <summary>
         /// It will convert a string into T
-        /// If Fails then Return Default Value
+        /// If Fails then Return Default Value given as arugment
         /// </summary>
         /// <typeparam name="T">Type</typeparam>
         /// <param name="Str">String which will be converted into T</param>
@@ -475,39 +444,13 @@ namespace SmExtentionsMethods
             {
                 return (T)Convert.ChangeType(Str, typeof(T));
             }
-            catch (Exception ex)
+            catch (Exception exception)
             {
                 return defaultValue;
             }
         }
 
-        #region Lists
-
-        /// <summary>
-        /// It will First Split Str on with seprator and generate a list<string>
-        /// after this will try to convert List<string> into List<T>
-        /// if Convertion fails then return the default value for that item
-        /// </summary>
-        /// <typeparam name="T">Type</typeparam>kl
-        /// <param name="Str">String</param>
-        /// <param name="Seprator">Seprator to split the String</param>
-        /// <param name="defaultValue">set Default Value if conversion fails</param>
-        /// <returns>return the List<T> holds converted values or default values</returns>
-        public static List<T> ToList<T>(this string Str, char Seprator, T defaultValue) where T : IConvertible
-        {
-
-            List<string> lstStr = Str.Split(new char[] { Seprator }, StringSplitOptions.RemoveEmptyEntries).ToList();
-            List<T> lst = new List<T>();
-
-            lstStr.ForEach(s => lst.Add(s.To<T>(defaultValue)));
-            return lst;
-        }
-
-        public static bool In<T>(this T source, params T[] list)
-        {
-            return list.Contains(source);
-        }
-        #endregion
+        
 
         /// <summary>
         /// Remove the Consective muliple occurence of chars
